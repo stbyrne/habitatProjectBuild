@@ -1,0 +1,45 @@
+<ion-view>
+    <ion-nav-title class="title">Project Name</ion-nav-title>
+<ion-nav-bar class="bar-hmhorange">
+  <ion-nav-back-button class="button-icon button-clear ion-ios-arrow-left">
+      </ion-nav-back-button>
+    <div class="buttons">
+            <a href="#/app/projects" class="button icon button-icon">Home</a>
+        </div>
+</ion-nav-bar>
+<ion-content ng-init="num = getIndex()">
+        
+        <div class="list card">
+
+            <div href="#" class="item">
+            <i class="ion-ios-person-outline"></i>
+            {{projectDetails[num].initiator}}
+            </div>
+
+            <div href="#" class="item">
+            <i class="ion-ios-pricetags-outline"></i>
+            Revision: {{projectDetails[num].revision}}
+            </div>
+            
+            <div href="#" class="item">
+            <i class="ion-ios-time-outline"></i>
+            {{projectDetails[num].dateCreated}}
+            </div>
+
+            <div href="#" class="item">
+                <a href="{{projectDetails[num].URL}}" class="button button-block item-inkling" download>
+                    <i class="ion-ios-download-outline"></i>
+                    Download ePub
+                </a>
+            </div>
+            
+            <div ng-controller="DownloadCtrl" class="item">
+                <a ng-init="file=projectDetails[num].URL;revision=projectDetails[num].revision" class="button button-block item-inkling" ng-click="download(file, revision)">
+                <i class="ion-ios-download-outline"></i>
+                Download Zip
+                </a>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>
