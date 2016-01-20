@@ -60,17 +60,18 @@ angular.module('starter.controllers', [])
     });
       
     var projectName = $scope.projectData.name,
-        accessToken = '?access_token=p-970d21fbdd8540e99bd7b23ffb9e0af1',
         s9ID = '082df23d7c79961406ba9ce12ce2d448806',
-        accessToken = '?access_token=0f7d47f7b25ef7a48a5b4186ed06297e';
+        //Need to update the app so the up-to-date access token is required when the app launches. Maybe thru an API call after login?
+        //In the meantime its a manual step :( so grab the access token from xhr request when youn first access your project -- access_token?grant_type=.............
+        accessToken = '?access_token=0f780b434572dff46a3b0203d5a4fb86';
         /*url = Api.getData() + "?access_token=" + accessToken + "&shortname=" + projectName + "&keepEmailOptions=true";*/
       
     $http({
             url: 'https://habitat.inkling.com/api/contentbuilds/' + accessToken + '&shortname=' + projectName,
-            method: 'GET',
+            method: 'GET'/*,
             headers: {
                     responseType: 'arraybuffer'   
-            }
+            }*/
          
           }).then(function(data){
         
@@ -116,6 +117,8 @@ angular.module('starter.controllers', [])
     });
       
       //Set and Get index number to pass to view
+      $scope.indexNumber = null;
+      console.log($scope.indexNumber);
       
       $scope.setIndex = function(number){
            $scope.indexNumber = number;
@@ -173,6 +176,8 @@ angular.module('starter.controllers', [])
             /*parameter = JSON.stringify({shortname:projectBuildName,type:'epub'});*/
             parameter = {shortname:projectBuildName,type:'epub'};
         
+        //Including the headers parameter in the POST request was crucial!!! Didnt work without specifically inlcuding it
+        
         $http({
             url: url + accessToken,
             method: "POST",
@@ -181,8 +186,8 @@ angular.module('starter.controllers', [])
         }).then(function(data){
             
             console.log(data);
-            $scope.getProject();
             $scope.doRefresh();
+            $scope.getProject();
             $ionicLoading.hide();
             
         }, function(data){
