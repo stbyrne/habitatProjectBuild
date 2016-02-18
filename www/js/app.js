@@ -75,6 +75,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   
     .state('app.projects', {
       url: '/projects',
+      params: {
+          indexNumber: null
+      },
       views: {
         'menuContent': {
           templateUrl: 'templates/projects.html',
@@ -85,6 +88,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   .state('app.singleproject', {
     url: '/projects/project',
+    params: {
+      indexNumber: 3
+    },
     views: {
       'menuContent': {
         templateUrl: 'templates/project.html',

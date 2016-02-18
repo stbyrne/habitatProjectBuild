@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <ion-item ng-repeat="project in projectDetails" ng-init="num=$index" ng-click="setIndex(num)" href="#/app/projects/project" class="item item-icon-left item-icon-right">
+            <ion-item ng-repeat="project in projectDetails" ng-click="setIndex($index)" ng-init="getIndex()" href="#/app/projects/project" class="item item-icon-left item-icon-right">
                 <i class="icon ion-ios-pricetags-outline"></i>
                 <p>Revision: {{project.revision}}</p>
                 <i class="icon ion-ios-arrow-thin-right"></i>

@@ -54,6 +54,7 @@ angular.module('starter.controllers', [])
   // Perform the action when the user submits the fetch form
   $scope.getProject = function() {
       
+      
       $ionicLoading.show({
     template: '<p>Getting Habitat Projects</p><ion-spinner icon="spiral" class="spiral-hmhorange"></ion-spinner>',
     showBackdrop: true
@@ -109,6 +110,7 @@ angular.module('starter.controllers', [])
         console.log($scope.projectDetails);
         
         
+        
     }, function(data){
         
         console.log("Error, please check the project name");
@@ -116,21 +118,29 @@ angular.module('starter.controllers', [])
         $scope.openPopover();
     });
       
-      //Set and Get index number to pass to view
-      $scope.indexNumber = null;
-      console.log($scope.indexNumber);
+        //Set and Get index number to pass to view
+        $scope.indexNumber = null;
+
+        console.log($scope.indexNumber);
+       /* console.log(state('app.singleproject').params.indexNumber);*/
       
-      $scope.setIndex = function(number){
-           $scope.indexNumber = number;
-          console.log($scope.indexNumber);
-      }
-      
-      $scope.getIndex = function(){
+        $scope.setIndex = function(number){
+            console.log(number);
+            $scope.indexNumber = number;
+            console.log($scope.indexNumber);
+        }
+
+        $scope.getIndex = function(){
+            $state.params.indexNumber = $scope.indexNumber;
+            number = $state.params.indexNumber;
+            console.log("Current Index: " + number);
+            return number;
+        }
+        $scope.clearIndex = function(){
+          $scope.indexNumber = null;
           console.log("Current Index: " + $scope.indexNumber);
-           return $scope.indexNumber;
-      }
+        }
       
-     
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
@@ -186,8 +196,8 @@ angular.module('starter.controllers', [])
         }).then(function(data){
             
             console.log(data);
-            $scope.doRefresh();
             $scope.getProject();
+            $scope.doRefresh();
             $ionicLoading.hide();
             
         }, function(data){
@@ -250,7 +260,7 @@ angular.module('starter.controllers', [])
     
     $scope.doRefresh = function(){
             $state.go($state.current, {}, {reload: true});
-            
+            console.log("Refreshing current State");
         }
     
 })
