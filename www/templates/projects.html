@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view cache-view="false">
     <ion-nav-buttons class="bar-energized">
         <div class="buttons"><button class="button button-icon button-hmhdark ion-drag" menu-toggle="left">
         </button>
@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <ion-item ng-repeat="project in projectDetails" ng-click="setIndex($index)" ng-init="getIndex()" href="#/app/projects/project" class="item item-icon-left item-icon-right">
+            <ion-item ng-repeat="project in projectDetails" ng-click="setIndex($index)" href="#/app/projects/project" class="item item-icon-left item-icon-right">
                 <i class="icon ion-ios-pricetags-outline"></i>
                 <p>Revision: {{project.revision}}</p>
                 <i class="icon ion-ios-arrow-thin-right"></i>

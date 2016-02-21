@@ -64,7 +64,7 @@ angular.module('starter.controllers', [])
         s9ID = '082df23d7c79961406ba9ce12ce2d448806',
         //Need to update the app so the up-to-date access token is required when the app launches. Maybe thru an API call after login?
         //In the meantime its a manual step :( so grab the access token from xhr request when youn first access your project -- access_token?grant_type=.............
-        accessToken = '?access_token=0f780b434572dff46a3b0203d5a4fb86';
+        accessToken = '?access_token=0f7b21ff9fa3e244e3080d398922d358';
         /*url = Api.getData() + "?access_token=" + accessToken + "&shortname=" + projectName + "&keepEmailOptions=true";*/
       
     $http({
@@ -122,7 +122,7 @@ angular.module('starter.controllers', [])
         $scope.indexNumber = null;
 
         console.log($scope.indexNumber);
-       /* console.log(state('app.singleproject').params.indexNumber);*/
+        /* console.log(state('app.singleproject').params.indexNumber);*/
       
         $scope.setIndex = function(number){
             console.log(number);
@@ -131,10 +131,8 @@ angular.module('starter.controllers', [])
         }
 
         $scope.getIndex = function(){
-            $state.params.indexNumber = $scope.indexNumber;
-            number = $state.params.indexNumber;
-            console.log("Current Index: " + number);
-            return number;
+            console.log("Current Index: " + $scope.indexNumber);
+            return $scope.indexNumber;
         }
         $scope.clearIndex = function(){
           $scope.indexNumber = null;
@@ -197,7 +195,7 @@ angular.module('starter.controllers', [])
             
             console.log(data);
             $scope.getProject();
-            $scope.doRefresh();
+            /*$scope.doRefresh();*/
             $ionicLoading.hide();
             
         }, function(data){

@@ -33,6 +33,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     /*$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';*/
     
     $ionicConfigProvider.backButton.previousTitleText(false).text('');
+    $ionicConfigProvider.views.maxCache(0);
     
   $stateProvider
 
@@ -75,9 +76,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   
     .state('app.projects', {
       url: '/projects',
-      params: {
-          indexNumber: null
-      },
       views: {
         'menuContent': {
           templateUrl: 'templates/projects.html',
@@ -88,9 +86,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   .state('app.singleproject', {
     url: '/projects/project',
-    params: {
-      indexNumber: 3
-    },
     views: {
       'menuContent': {
         templateUrl: 'templates/project.html',
