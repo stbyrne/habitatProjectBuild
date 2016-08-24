@@ -52,7 +52,7 @@ angular.module('starter.controllers', [])
     
 
   // Perform the action when the user submits the fetch form
-  $scope.getProject = function() {
+  request = function() {
       
       
       $ionicLoading.show({
