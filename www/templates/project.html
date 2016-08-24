@@ -34,7 +34,7 @@
             </div>
             
             <div ng-controller="DownloadCtrl" class="item">
-                <a ng-init="file=projectDetails[num].URL;revision=projectDetails[indexNumber].revision" class="button button-block item-inkling" ng-click="download(file, revision)">
+                <a ng-init="file=projectDetails[indexNumber].URL;revision=projectDetails[indexNumber].revision" class="button button-block item-inkling" ng-click="download(file, revision)">
                 <i class="ion-ios-download-outline"></i>
                 Download Zip
                 </a>

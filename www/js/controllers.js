@@ -64,7 +64,7 @@ angular.module('starter.controllers', [])
         s9ID = '082df23d7c79961406ba9ce12ce2d448806',
         //Need to update the app so the up-to-date access token is required when the app launches. Maybe thru an API call after login?
         //In the meantime its a manual step :( so grab the access token from xhr request when youn first access your project -- access_token?grant_type=.............
-        accessToken = '?access_token=0f7b21ff9fa3e244e3080d398922d358';
+        accessToken = '?access_token=0f72c2e8a92201247228da3961a20033';
         /*url = Api.getData() + "?access_token=" + accessToken + "&shortname=" + projectName + "&keepEmailOptions=true";*/
       
     $http({
@@ -266,6 +266,8 @@ angular.module('starter.controllers', [])
 .controller('DownloadCtrl', function($scope, $http, $ionicLoading) {
     
     $scope.download = function(file, revision){
+        
+        console.log(file);
         
         $ionicLoading.show({
             template: '<p>Downloading ePub as zip</p><ion-spinner icon="dots" class="dots-hmhorange"></ion-spinner>',
