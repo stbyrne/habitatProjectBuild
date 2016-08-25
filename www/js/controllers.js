@@ -48,11 +48,12 @@ angular.module('starter.controllers', [])
   $scope.fetch = function() {
       $scope.fetchmodal.show();
       console.log('Opening modal');
+      console.log('Opening modal');
   };
     
 
   // Perform the action when the user submits the fetch form
-  request = function() {
+  $scope.getProject = function() {
       
       
       $ionicLoading.show({
